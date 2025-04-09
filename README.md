@@ -1,5 +1,5 @@
 # **Termux-mdwm** #
-:fire:  
+:fire: *a simple and lightweight config for dwm with gpu acceleration in termux*   
 
 ## *PREVIEW* ##
 ![home screen](./images/img1.jpg)
