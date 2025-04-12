@@ -1,21 +1,24 @@
 #!/bin/bash
 
 # Load colors
-source ./colors.sh
-
+source ./setup/colors.sh
+clear
 # check if storage is already setup
 if [ ! -d "$HOME/storage/shared" ]; then
   echo
   echo -e "${RED_BOLD}you haven't setup the storage yet${NC}"
+ sleep  2
   echo -e"${WARN}${RED}Click allow on your screen${NC}"
   echo 
   termux-setup-storage
   echo
-  echo  -e  "${GREEN_BOLD}Done!${NC}"
+  echo  -e  "${TICK}${GREEN_BOLD}Done!${NC}"
 else
   echo
   echo -e "${TICK}${GREEN_BOLD}Storage already set up !${NC}"
 fi
+sleep 3.5
+clear
 # package list
 pkgs=(
   git python nodejs wget abseil-cpp adwaita-icon-theme-legacy adwaita-icon-theme alacritty
@@ -70,12 +73,20 @@ install_pkgs() {
   echo -e "${GREEN_BOLD}==> Packages are installed!${NC}"
 }
 install_pkgs
-#setup fonts
-mkdir  -p  ~/.termux/
-cp  ../setup-themes/font.ttf  ~/.termux/
+# setup termux color theme
+echo -e "${CYAN_BOLD}setting up termux theme...${NC}"
 
-#copy  catpuccin themes for termux 
-cp  ../setup-themes/colors.properties ~/.termux
+mkdir -p "$HOME/.termux"
 
+if cp ./setup-themes/colors.properties "$HOME/.termux/" 2>/dev/null; then
+  echo -e "${GREEN}${TICK} theme has been set up${NC}"
+else
+  echo -e "${RED}${CROSS} failed to setup theme${NC}"
+  echo -e "${YELLOW}you can copy the file manually from ./setup-themes/colors.properties to ~/.termux/colors.properties${NC}"
+fi
+
+#reload termux settings
+echo  -e  "${INFO}${BOLD_CYAN}.. Reloading termux${NC}"
+termux-reload-settings
 
 

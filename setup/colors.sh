@@ -36,5 +36,5 @@ NC='\033[0m'
 TICK="${GREEN_BOLD}✓${NC}"
 CROSS="${RED_BOLD}✗${NC}"
 ARROW="${CYAN_BOLD}→${NC}"
-INFO="${BLUE_BOLD}i${NC}"
+INFO="${GREEN} ℹ️${NC}"
 WARN="${YELLOW_BOLD}⚠${NC}"
