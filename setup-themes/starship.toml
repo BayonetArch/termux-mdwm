@@ -1,0 +1,148 @@
+format = """
+$time\
+$line_break\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$nodejs\
+$rust\
+$golang\
+$character"""
+
+[username]
+show_always = false
+style_user = "#a6e3a1 bold" # Catppuccin green
+style_root = "#f38ba8 bold" # Catppuccin red
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+format = "[@$hostname](bold #89b4fa) " # Catppuccin blue
+
+[directory]
+style = "#94e2d5" # Catppuccin teal
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " 🔒"
+read_only_style = "#f38ba8" # Catppuccin red
+
+[character]
+success_symbol = "[❯](#cba6f7)" # Catppuccin lavender
+error_symbol = "[❯](#f38ba8)" # Catppuccin red
+vimcmd_symbol = "[❮](#a6e3a1)" # Catppuccin green
+
+[git_branch]
+format = "on [󰘬 $branch]($style)"
+style = "#bac2de" # Catppuccin subtext1
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "#9399b2" # Catppuccin overlay2
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "#89dceb" # Catppuccin sky
+conflicted = "󰞇 "
+untracked = "󰐕 "
+modified = "󰏫 "
+staged = "󰄬 "
+renamed = "󰑕 "
+deleted = "󰮈 "
+stashed = "󰏗 "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+[cmd_duration]
+format = "[󰔚 $duration]($style) "
+style = "#f9e2af" # Catppuccin yellow
+min_time = 500
+
+[python]
+format = "[󰌠 $virtualenv]($style) "
+style = "#cba6f7" # Catppuccin mauve
+
+[nodejs]
+format = "[󰎙 $version]($style) "
+style = "#a6e3a1" # Catppuccin green
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "jsx", "tsx"]
+detect_files = ["package.json", ".node-version"]
+version_format = "${major}.${minor}"
+
+[rust]
+format = "[󱘗 $version]($style) "
+style = "#f38ba8" # Catppuccin red
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+version_format = "${major}.${minor}"
+
+[golang]
+format = "[󰟓 $version]($style) "
+style = "#89dceb" # Catppuccin sky
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum"]
+version_format = "${major}.${minor}"
+
+[time]
+disabled = false
+format = "[󰥔 $time]($style) "
+style = "#9399b2" # Catppuccin overlay2
+time_format = "%R"
+
+# Additional language modules with Catppuccin styling
+
+[java]
+format = "[󰬷 $version]($style) "
+style = "#fab387" # Catppuccin peach
+detect_extensions = ["java", "class", "jar", "gradle", "clj", "cljc"]
+detect_files = ["pom.xml", "build.gradle", "project.clj"]
+version_format = "${major}.${minor}"
+
+[lua]
+format = "[󰢱 $version]($style) "
+style = "#89b4fa" # Catppuccin blue
+detect_extensions = ["lua"]
+detect_files = [".lua-version"]
+version_format = "${major}.${minor}"
+
+[docker_context]
+format = "[󰡨 $context]($style) "
+style = "#89b4fa" # Catppuccin blue
+
+[kubernetes]
+format = "[󱃾 $context]($style) "
+style = "#89b4fa" # Catppuccin blue
+disabled = false
+
+[php]
+format = "[󰌟 $version]($style) "
+style = "#cba6f7" # Catppuccin mauve
+detect_extensions = ["php"]
+version_format = "${major}.${minor}"
+
+[haskell]
+format = "[󰲒 $version]($style) "
+style = "#cba6f7" # Catppuccin mauve
+detect_extensions = ["hs", "lhs"]
+version_format = "${major}.${minor}"
+
+[ruby]
+format = "[󰴭 $version]($style) "
+style = "#f38ba8" # Catppuccin red
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version"]
+version_format = "${major}.${minor}"
+
+[aws]
+format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
+style = "#fab387" # Catppuccin peach
+symbol = "󰸏 "
+
+
