@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Define soft bold colors
+PINK='\033[1;95m'
+WHITE='\033[1;97m'
+RESET='\033[0m'
+BOLD='\033[1m'
+
+echo -e "${PINK}${BOLD}╔══════════════════════════════════════════════════╗${RESET}"
+echo -e "${PINK}${BOLD}║             STARTING TERMUX DESKTOP              ║${RESET}"
+echo -e "${PINK}${BOLD}╚══════════════════════════════════════════════════╝${RESET}"
+sleep 0.6
+
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} FIXING PERMISSIONS FOR XDG_RUNTIME_DIR...${RESET}"
+chmod 700 "${XDG_RUNTIME_DIR:-/data/data/com.termux/files/usr/tmp}"
+sleep 0.5
+
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} KILLING EXISTING X11 PROCESSES...${RESET}"
+kill -9 $(pgrep -f "termux.x11") 2>/dev/null
+sleep 0.5
+
+MANUFACTURER=$(getprop ro.product.manufacturer | tr '[:upper:]' '[:lower:]')
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} STARTING PULSEAUDIO...${RESET}"
+if [[ "$MANUFACTURER" == "samsung" ]]; then
+  [ -d ~/.config/pulse ] && rm -rf ~/.config/pulse
+  LD_PRELOAD=/system/lib64/libskcodec.so pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+else
+  pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+fi
+export PULSE_SERVER=127.0.0.1
+sleep 0.6
+
+export XDG_RUNTIME_DIR=${TMPDIR}
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} STARTING X11 DISPLAY SERVER...${RESET}"
+termux-x11 :0 >/dev/null &
+sleep 2.5
+
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} LAUNCHING TERMUX:X11 MAIN ACTIVITY...${RESET}"
+am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null 2>&1
+sleep 1
+
+gpu_check() {
+  gpu_egl=$(getprop ro.hardware.egl)
+  gpu_vulkan=$(getprop ro.hardware.vulkan)
+  detected_gpu="$(echo -e "$gpu_egl\n$gpu_vulkan" | sort -u | tr '\n' ' ' | sed 's/ $//')"
+
+  if echo "$detected_gpu" | grep -iq "adreno"; then
+    echo -e "\n${PINK}${BOLD}[+]${WHITE}${BOLD} GPU DETECTED: $detected_gpu (ADRENO)${RESET}"
+    MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT \
+      MESA_GLES_VERSION_OVERRIDE=3.2 LIBGL_DRI3_DISABLE=1 \
+      virgl_test_server_android &
+  elif echo "$detected_gpu" | grep -iq "mali"; then
+    echo -e "\n${PINK}${BOLD}[+]${WHITE}${BOLD} GPU DETECTED: $detected_gpu (MALI)${RESET}"
+    MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT \
+      MESA_GLES_VERSION_OVERRIDE=3.2 LIBGL_DRI3_DISABLE=1 \
+      virgl_test_server_android --angle-gl &
+  else
+    echo -e "\n${PINK}${BOLD}[!]${WHITE}${BOLD} UNKNOWN GPU: $detected_gpu. FORCING MALI MODE.${RESET}"
+    MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT \
+      MESA_GLES_VERSION_OVERRIDE=3.2 LIBGL_DRI3_DISABLE=1 \
+      virgl_test_server_android --angle-gl &
+  fi
+}
+
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} CHECKING GPU AND STARTING VIRGL...${RESET}"
+gpu_check
+sleep 1
+
+echo -e "\n${PINK}${BOLD}[•]${WHITE}${BOLD} STARTING DBUS AND DWM SESSION...${RESET}"
+dbus-daemon --session --address=unix:path=$PREFIX/var/run/dbus-session &
+env DISPLAY=:0 GALLIUM_DRIVER=virpipe \
+  dbus-launch --exit-with-session dwm &
+
+sleep 0.8
+echo -e "\n${PINK}${BOLD}[✓]${WHITE}${BOLD} DESKTOP READY — ENJOY YOUR SESSION!${RESET}\n"
