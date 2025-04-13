@@ -1,4 +1,5 @@
 #!/bin/bash
+#this  script is made in hurry any improvements and suggestions would be appreciated :) thank you !!
 if ! command -v figlet >/dev/null 2>&1; then
   echo -e "\033[1;34mInstalling figlet...\033[0m"
   if apt install -y figlet >/dev/null 2>&1; then
@@ -19,11 +20,9 @@ clear
 
 echo -e "${CYAN_BOLD}"
 figlet -w $COLUMNS -f small "Initial Check"
-echo -e "${MAGENTA_BOLD}"
-figlet -w $COLUMNS "For Installation"
 echo -e "${NC}"
 
-box_width=$((COLUMNS < 80 ? COLUMNS : 80))
+box_width=$((COLUMNS < 70 ? COLUMNS : 70))
 padding=$(( (COLUMNS - box_width) / 2 ))
 padding_spaces=$(printf "%${padding}s")
 
@@ -32,8 +31,8 @@ echo "${padding_spaces}┌──────────────────
 echo "${padding_spaces}│               We'll check if you have the required                    │" | cut -c 1-$box_width
 echo "${padding_spaces}│                  apps for this setup                                  │" | cut -c 1-$box_width
 echo "${padding_spaces}│                                                                       │" | cut -c 1-$box_width
-echo "${padding_spaces}│     If not, you can choose 'no' to open the download link             │" | cut -c 1-$box_width
-echo "${padding_spaces}│             and grab them directly from GitHub.                       │" | cut -c 1-$box_width
+echo "${padding_spaces}│     If not, you can choose 'no' to open the download              │" | cut -c 1-$box_width
+echo "${padding_spaces}│          link and grab them directly from GitHub.                       │" | cut -c 1-$box_width
 echo "${padding_spaces}└───────────────────────────────────────────────────────────────────────┘" | cut -c 1-$box_width
 echo -e "${NC}"
 
@@ -321,7 +320,7 @@ echo -e "${CYAN_BOLD}$(figlet  'Installation Finished')${NC}"
 sleep 2
 echo -e "\n${BLUE}Installation is complete.${NC}"
 echo -e "${CYAN_BOLD}A restart is recommended.${NC}"
-echo -e "\n${WARN}${RED_BOLD}To start your desktop,${NC} use: ${GREEN_BOLD}start${NC}\n"
+echo -e "\n${WARN} ${RED_BOLD}To start your desktop,${NC} use: ${MAGENTA_BOLD}start${NC}\n"
 
 echo -e "${CYAN}If you encounter any errors, check out my GitHub:${NC} ${CYAN_BOLD}https://github.com/BayonetArch/${RESET}"
 echo -e "${CYAN}Or visit my YouTube channel ${NC} ${CYAN_BOLD}https://www.youtube.com/@Bayonet7${RESET}"
