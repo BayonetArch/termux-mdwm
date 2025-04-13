@@ -20,7 +20,7 @@
 ### first step ###
 *first update the system and install git pacakges by running following command*
 ```bash
-apt update && apt upgrade && apt install git
+apt update -y && apt upgrade -y  && apt install git -y
 ```
 ### second step ###
 **clone the repo and run install.sh**
