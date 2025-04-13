@@ -206,7 +206,7 @@ pkgs=(
   tree-sitter-query tree-sitter-vim tree-sitter-vimdoc tree-sitter ttf-dejavu tur-repo
   unzip utf8proc util-linux virglrenderer-android virglrenderer vulkan-icd
   vulkan-loader-generic vulkan-loader vulkan-tools x11-repo xkeyboard-config
-  xorg-util-macros xorg-xauth xorgproto xvidcore xxhash xz-utils zlib zstd starship lxappearance eza feh 
+  xorg-util-macros xorg-xauth xorgproto xvidcore xxhash xz-utils zlib zstd starship lxappearance eza feh xorg-xsetroot
 )
 
 # Install function

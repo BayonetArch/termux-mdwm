@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # Set wallpaper
-feh --bg-fill ~/Downloads/wall.png &
-
+feh --bg-fill ~/.wallpaper/wall.png 
 # Start compositor
 #xcompmgr -c -f -D 3 &
 
