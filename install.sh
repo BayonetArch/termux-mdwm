@@ -39,16 +39,6 @@ echo -e "${NC}"
 
 
 
-
-
-
-
-
-
-
-
-
-
 TERMUX_X11_URL="https://github.com/termux/termux-x11/releases/tag/nightly"
 TERMUX_API_URL="https://github.com/termux/termux-api/releases/tag/v0.51.0"
 
@@ -217,7 +207,7 @@ pkgs=(
   tree-sitter-query tree-sitter-vim tree-sitter-vimdoc tree-sitter ttf-dejavu tur-repo
   unzip utf8proc util-linux virglrenderer-android virglrenderer vulkan-icd
   vulkan-loader-generic vulkan-loader vulkan-tools x11-repo xkeyboard-config
-  xorg-util-macros xorg-xauth xorgproto xvidcore xxhash xz-utils zlib zstd starship
+  xorg-util-macros xorg-xauth xorgproto xvidcore xxhash xz-utils zlib zstd starship lxappearance
 )
 
 # Install function
