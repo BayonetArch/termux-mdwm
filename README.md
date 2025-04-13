@@ -37,6 +37,74 @@ cd termux-mdwm
 ```bash
 start
 ```
+# DWM Keybindings (My Build)
+
+
+---
+
+## Modifier Key
+
+- **MODKEY**:it's set to `Alt`.
+
+---
+
+## Application Launching
+
+| Shortcut        | Action                  |
+|----------------|--------------------------|
+| `Alt + d`      | Launch `dmenu`          |
+| `Alt + Enter`  | Launch terminal          |
+| `Alt + b`      | Launch browser           |
+
+---
+
+## Window Management
+
+| Shortcut        | Action                          |
+|----------------|----------------------------------|
+| `Alt + q`      | Close focused window             |
+| `Alt + f`      | Toggle fullscreen for a window   |
+| `Alt + g`      | Toggle floating mode             |
+| `Alt + j`      | Focus next window in stack       |
+| `Alt + k`      | Focus previous window in stack   |
+
+---
+
+## Layouts & Tags
+
+| Shortcut              | Action                        |
+|-----------------------|-------------------------------|
+| `Alt + [1-9]`         | Switch to tag (workspace)     |
+| `Alt + Shift + [1-9]` | Move window to tag            |
+| Click on layout icon  | Cycle through layouts         |
+
+---
+
+## Notes
+
+- If you want to change `MODKEY`, look for `#define MODKEY` in `config.h`.
+- You can customize `termcmd`, `browsercmd`, etc., in the same file to use your preferred apps.
+
+---
+
+## Tips
+
+- Use floating mode (`Alt + g`) when apps don't tile well.
+- Combine `Alt + Shift + q` to cleanly close windows while staying on track.
+- Customize `dmenu` with your own font/colors to match your rice.
+
+---
+
+
+
+
+
+
+
+
+
+
+
 
 ## Need Help?
 
