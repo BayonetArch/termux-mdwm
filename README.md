@@ -20,7 +20,7 @@
 ### first step ###
 *first update the system and install git pacakges by running following command*
 ```bash
-apt update -y && apt upgrade -y  && apt install git -y
+apt update -y && apt upgrade -y  && apt install git -y && termux-setup-storage
 ```
 ### second step ###
 **clone the repo and run install.sh**
