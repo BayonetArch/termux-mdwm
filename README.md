@@ -22,6 +22,7 @@
 ```bash
 apt update -y && apt upgrade -y  && apt install git -y && termux-setup-storage
 ```
+> *CLICK ON ALLOW WHILE SETTING UP STORAGE*
 ### second step ###
 **clone the repo and run install.sh**
 ```bash
