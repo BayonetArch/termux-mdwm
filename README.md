@@ -8,12 +8,11 @@
 
 ### **INSTRUCTIONS** ###
 ***for setting up the environment you need following requirements:***
-- [x] termux app 
-> **only use github or fdroid as playstore one is outdated 
+- [x] termux app ### *Link:(https://google.com)* ### 
+> **only use github or fdroid as playstore one is outdated**
 - [x] **termux:x11**
 - [x] **termux:api**
 - [x] **internet connection**
-- [x] Celebrate like a Chad
 
 
 
