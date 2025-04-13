@@ -307,7 +307,7 @@ echo
 echo -e "${TICK}${YELLOW} DONE!${NC}" 
 #setup wallpaper
 mkdir -p ~/.wallpaper
-cp ./setup-themes/wall.png
+cp ./setup-themes/wall.png ~/.wallpaper/
 #copy autostart script for dwm
 mkdir  -p  ~/.dwm
 cp ./setup/autostart.sh ~/.dwm/
