@@ -7,13 +7,13 @@ clear
 if [ ! -d "$HOME/storage/shared" ]; then
   echo
   echo -e "${RED_BOLD}you haven't setup the storage yet${NC}"
- sleep  2
-  echo -e"${WARN}${RED}Click allow on your screen${NC}"
+  echo -e "${WARN}${RED}Click allow on your screen${NC}"
+  sleep  2
   echo 
   termux-setup-storage
+  sleep 3
   echo
   echo  -e  "${TICK}${GREEN_BOLD}Done!${NC}"
-else
   echo
   echo -e "${TICK}${GREEN_BOLD}Storage already set up !${NC}"
 fi
@@ -21,7 +21,7 @@ sleep 3.5
 clear
 # package list
 pkgs=(
-  git python nodejs wget abseil-cpp adwaita-icon-theme-legacy adwaita-icon-theme alacritty
+  git  x11-repo tur-repo python nodejs wget abseil-cpp adwaita-icon-theme-legacy adwaita-icon-theme alacritty
   alsa-lib alsa-utils angle-android apt at-spi2-core bash brotli bzip2 ca-certificates
   clang command-not-found coreutils curl dash dbus debianutils desktop-file-utils
   dialog diffutils dmenu dos2unix dpkg ed ffmpeg fftw findutils firefox fontconfig
