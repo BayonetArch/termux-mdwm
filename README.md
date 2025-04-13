@@ -31,7 +31,15 @@ cd termux-mdwm
 ```
 
 
+## **That's it you have succesfully installed the desktop** ##
+*run the desktop by running*
+```bash
+start
+```
 
+## Need Help?
+
+If you run into any issues or have questions, feel free to ask in the comments on my [YouTube channel](https://www.youtube.com/@Bayonet7). I’ll try to respond as soon as I can.
 
 
 
