@@ -9,13 +9,13 @@
 ### **INSTRUCTIONS** ###
 ***for setting up the environment you need following requirements:***
 - [x] termux app 
-- [x] Push code to GitHub
-- [x] Update README
-- [x] Add external repo link
+> **only use github or fdroid as playstore one is outdated 
+- [x] **termux:x11**
+- [x] **termux:api**
+- [x] **internet connection**
 - [x] Celebrate like a Chad
 
 
-<only use github or fdroid as playstore one is outdated 
 
 
 
