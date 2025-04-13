@@ -33,8 +33,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 }, /* Send Firefox to tag 2 */
-	{ "Alacritty", NULL,      NULL,       0,       0,           -1 }, /* Send Alacritty to tag 2 */
+	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 }, /* Send Firefox to tag 2 */
+	{ "alacritty", NULL,      NULL,       0,       0,           -1 }, /* Send Alacritty to tag 2 */
 	{ "qutebrowser", NULL,    NULL,       0,            0,           -1 },
 };
 
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_green, "-sf", col_black, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *quitcmd[]  = { "pkill", "dwm", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 
