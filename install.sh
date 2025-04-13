@@ -255,6 +255,7 @@ echo
 echo
 mkdir -p ~/.config
 cp ./setup-themes/starship.toml ~/.config
+cp ./setup-themes/font.ttf ~/.termux/
 termux-reload-settings
 sleep 2
 echo 
@@ -304,6 +305,12 @@ cp ./setup/start $PREFIX/bin/
 sleep 1
 echo
 echo -e "${TICK}${YELLOW} DONE!${NC}" 
+#setup wallpaper
+mkdir -p ~/.wallpaper
+cp ./setup-theme/wall.png
+#copy autostart script for dwm
+mkdir  -p  ~/.dwm
+cp ./setup/austart.sh ~/.dwm/
 
 #setup for dwm themes
 mkdir -p ~/.themes
