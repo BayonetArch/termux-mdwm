@@ -17,6 +17,18 @@
 *Link: (https://github.com/termux/termux-api/releases/tag/v0.51.0)*
 - [x] **internet connection**
 
+### first step ###
+*first update the system and install git pacakges by running following command*
+```bash
+apt update && apt upgrade && apt install git
+```
+### second step ###
+**clone the repo and run install.sh**
+```bash
+git clone https://github.com/BayonetArch/termux-mdwm.git 
+cd termux-mdwm
+./install.sh
+```
 
 
 
