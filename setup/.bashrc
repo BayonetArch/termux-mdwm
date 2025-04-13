@@ -2,7 +2,6 @@ clear
 alias kk='pkill -9 -u $(whoami)'
 alias update='pkg update -y && pkg upgrade -y'
 alias ..='cd ..'
-source ~/.termuxprofile
 alias ls='eza -A --icons --no-permissions --no-time --no-user --no-filesize'
 function cd() {
   builtin cd "$@" && eza -A --icons --no-permissions --no-time --no-user --no-filesize
