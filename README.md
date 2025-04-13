@@ -18,7 +18,7 @@
 - [x] **internet connection**
 
 ### first step ###
-*first update the system and install git pacakges by running following command*
+*first update the system and install git  by running following command*
 ```bash
 apt update -y && apt upgrade -y  && apt install git -y && termux-setup-storage
 ```
