@@ -332,3 +332,4 @@ echo -e "\n${WARN} ${RED_BOLD}To start your desktop,${NC} use: ${MAGENTA_BOLD}st
 echo -e "${CYAN}If you encounter any errors, check out my GitHub:${NC} ${CYAN_BOLD}https://github.com/BayonetArch/${RESET}"
 echo -e "${CYAN}Or visit my YouTube channel ${NC} ${CYAN_BOLD}https://www.youtube.com/@Bayonet7${RESET}"
 
+#hello
