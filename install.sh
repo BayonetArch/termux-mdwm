@@ -9,8 +9,6 @@ if ! command -v figlet >/dev/null 2>&1; then
   fi
 fi
 
-
-
 source ./setup/colors.sh || {
   echo "Error: Failed to source colors.sh"
   exit 1
@@ -23,7 +21,7 @@ figlet -w $COLUMNS -f small "Initial Check"
 echo -e "${NC}"
 
 box_width=$((COLUMNS < 70 ? COLUMNS : 70))
-padding=$(( (COLUMNS - box_width) / 2 ))
+padding=$(((COLUMNS - box_width) / 2))
 padding_spaces=$(printf "%${padding}s")
 
 echo -e "${YELLOW_BOLD}"
@@ -35,8 +33,6 @@ echo "${padding_spaces}│     If not, you can choose 'no' to open the download 
 echo "${padding_spaces}│          link and grab them directly from GitHub.                       │" | cut -c 1-$box_width
 echo "${padding_spaces}└───────────────────────────────────────────────────────────────────────┘" | cut -c 1-$box_width
 echo -e "${NC}"
-
-
 
 TERMUX_X11_URL="https://github.com/termux/termux-x11/releases/tag/nightly"
 TERMUX_API_URL="https://github.com/termux/termux-api/releases/tag/v0.51.0"
@@ -74,7 +70,7 @@ handle_app_check() {
   else
     if ask_yes_no "would you like to download by opening link in browser? ${app_name}?"; then
       echo -e "${MAGENTA}Opening link ${ARROW}${NC} ${app_url}"
-      if command -v termux-open > /dev/null 2>&1; then
+      if command -v termux-open >/dev/null 2>&1; then
         termux-open "$app_url"
         echo -e "${YELLOW}Install the app from the page that opens, then come back here.${NC}"
       else
@@ -99,7 +95,6 @@ handle_app_check() {
     fi
   fi
 }
-
 
 handle_app_check "Termux:X11" "$TERMUX_X11_PKG" "$X11_DESC" "$TERMUX_X11_URL" "TERMUX_X11_CONFIRMED"
 handle_app_check "Termux:API" "$TERMUX_API_PKG" "$API_DESC" "$TERMUX_API_URL" "TERMUX_API_CONFIRMED"
@@ -153,21 +148,20 @@ if [[ "$continue_choice" != "y" ]]; then
 fi
 echo
 
-
 # check if storage is already setup
-clear 
+clear
 echo -e "${ARROW}${RED}seting up storage !${NC}"
 
 if [ ! -d "$HOME/storage/shared" ]; then
   echo
   echo -e "${RED_BOLD}you haven't setup the storage yet${NC}"
   echo -e "${WARN}${RED}Click allow on your screen${NC}"
-  sleep  2
-  echo 
+  sleep 2
+  echo
   termux-setup-storage
   sleep 2
   echo
-  echo  -e  "${TICK}${GREEN_BOLD}Done!${NC}"
+  echo -e "${TICK}${GREEN_BOLD}Done!${NC}"
 else
   echo -e "${TICK}${GREEN_BOLD}Storage already set up !${NC}"
 fi
@@ -175,7 +169,7 @@ sleep 3
 clear
 # package list
 pkgs=(
-  git  x11-repo tur-repo python nodejs wget abseil-cpp adwaita-icon-theme-legacy adwaita-icon-theme alacritty
+  git x11-repo tur-repo python nodejs wget abseil-cpp adwaita-icon-theme-legacy adwaita-icon-theme alacritty
   alsa-lib alsa-utils angle-android apt at-spi2-core bash brotli bzip2 ca-certificates
   clang command-not-found coreutils curl dash dbus debianutils desktop-file-utils
   dialog diffutils dmenu dos2unix dpkg ed ffmpeg fftw findutils firefox fontconfig
@@ -240,7 +234,7 @@ else
 fi
 
 #reload termux settings
-echo  -e  "${ARROW}${BOLD_CYAN}.. Reloading termux${NC}"
+echo -e "${ARROW}${BOLD_CYAN}.. Reloading termux${NC}"
 termux-reload-settings
 #setup .bashrc and starship themes
 clear
@@ -258,7 +252,7 @@ cp ./setup-themes/starship.toml ~/.config
 cp ./setup-themes/font.ttf ~/.termux/
 termux-reload-settings
 sleep 2
-echo 
+echo
 echo
 echo -e "${TICK}${GREEN}Finished setting starship1!${NC}"
 
@@ -276,12 +270,12 @@ echo -e "${ARROW}${RED_BOLD} copying freetype headers...${NC}"
 rm -rf "$PREFIX/include/freetype"
 cp -r ./dwm-fixes/freetype "$PREFIX/include/"
 sleep 1
-echo 
+echo
 # add ft2build.h
 echo -e "${ARROW} ${RED_BOLD} copying ft2build.h..${NC}."
 cp ./dwm-fixes/ft2build.h "$PREFIX/include/"
 sleep 1
-echo 
+echo
 echo -e "${TICK} ${GREEN_BOLD}dwm compile headers setup complete"
 
 sleep 1
@@ -293,23 +287,23 @@ echo -e "${ARROW}${CYAN_BOLD}COMPILING DWM !${NC}"
 echo
 echo
 cd ./dwm
-make clean install 
+make clean install
 cd ..
 sleep 1
 echo
-echo -e "${TICK}${YELLOW}COMPILING FINISHED!${NC}" 
+echo -e "${TICK}${YELLOW}COMPILING FINISHED!${NC}"
 
 #Copy start script  to /bin
 echo -e "${INFO}${RED}         Copying start script to /bin !${NC}"
 cp ./setup/start $PREFIX/bin/
 sleep 1
 echo
-echo -e "${TICK}${YELLOW} DONE!${NC}" 
+echo -e "${TICK}${YELLOW} DONE!${NC}"
 #setup wallpaper
 mkdir -p ~/.wallpaper
 cp ./setup-themes/wall.png ~/.wallpaper/
 #copy autostart script for dwm
-mkdir  -p  ~/.dwm
+mkdir -p ~/.dwm
 cp ./setup/autostart.sh ~/.dwm/
 
 #setup for dwm themes
@@ -318,12 +312,11 @@ mkdir -p ~/.local/share/fonts
 cp -r ./setup-themes/Everforest-Dark ~/.themes/
 cp ./setup-themes/JetBrainsMonoNerdFont-Regular.ttf ~/.local/share/fonts/
 sleep 2
-echo -e  "${CYAN_BOLD}Setting up theme succesfull !!${NC}"
+echo -e "${CYAN_BOLD}Setting up theme succesfull !!${NC}"
 sleep 2
 clear
 
-
-echo -e "${CYAN_BOLD}$(figlet  'Installation Finished')${NC}"
+echo -e "${CYAN_BOLD}$(figlet 'Installation Finished')${NC}"
 sleep 2
 echo -e "\n${BLUE}Installation is complete.${NC}"
 echo -e "${CYAN_BOLD}A restart is recommended.${NC}"
