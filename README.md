@@ -85,47 +85,26 @@ start
 - If you want to change `MODKEY`, look for `#define MODKEY` in `config.h`.
 - You can customize `termcmd`, `browsercmd`, etc., in the same file to use your preferred apps.
 
----
-
 ## Tips
 
 - Use floating mode (`Alt + g`) when apps don't tile well.
 - Combine `Alt + Shift + q` to cleanly close windows while staying on track.
 - Customize `dmenu` with your own font/colors to match your rice.
 
----
 
+## setup rofi launcher 
 
+clone the repo :
+   ```bash
+   git clone --depth 1 https://BayonetArch/termux-mdwm.git && cd termux-mdwm 
 
-
-
-
-
-
-
-
-
+   ```
+run rofi_setup script :
+    ```bash
+    chmod +x ./setup_rofi.sh && ./setup_rofi.sh1
+    ``
+done !!
 
 ## Need Help?
 
 If you run into any issues or have questions, feel free to ask in the comments on my [YouTube channel](https://www.youtube.com/@Bayonet7). I’ll try to respond as soon as I can.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
