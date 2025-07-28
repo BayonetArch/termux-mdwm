@@ -12,14 +12,14 @@ fi
 [[ ! -d ./dwm ]] && echo "dwm dir not found " && exit 1
 [[ ! -d ./rofi ]] && echo "rofi dir not found " && exit 1
 
-rofi_config_path="$HOME/.config/rofi"
+config_path="$HOME/.config/"
 
-mkdir -p "$HOME"/.config/rofi || exit
+mkdir -p "$config_path"/rofi || exit
 
-echo -e "${info}copying rofi config to $rofi_config_path "
+echo -e "${info}copying rofi config to $config_path "
 sleep 1.5
 
-if ! cp -r ./rofi/ rofi_config_path; then
+if ! cp -r ./rofi/ "$config_path"; then
   echo -e "ERROR:failed to copy rofi config to path : '$(rofi_config_path)'"
   echo "you can copy the rofi folder to  .config/rofi"
   exit
