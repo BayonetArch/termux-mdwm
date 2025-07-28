@@ -96,7 +96,7 @@ start
 
 clone the repo :
    ```bash
-   git clone --depth 1 https://BayonetArch/termux-mdwm.git && cd termux-mdwm 
+   git clone --depth 1 https://github.com/BayonetArch/termux-mdwm.git && cd termux-mdwm 
 
    ```
 run `setup_rofi`script :
