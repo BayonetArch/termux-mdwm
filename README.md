@@ -99,10 +99,12 @@ clone the repo :
    git clone --depth 1 https://BayonetArch/termux-mdwm.git && cd termux-mdwm 
 
    ```
-run rofi_setup script :
-    ```bash
-    chmod +x ./setup_rofi.sh && ./setup_rofi.sh1
-    ``
+run `setup_rofi`script :
+    
+   ```bash
+    chmod +x ./setup_rofi.sh && ./setup_rofi.sh
+   ```
+
 done !!
 
 ## Need Help?
