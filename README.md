@@ -1,30 +1,29 @@
-# **Termux-mdwm** #
-:fire: *a simple and lightweight config for dwm with gpu acceleration in termux*   
+# Termux-mdwm #
+simple and lightweight config for dwm with gpu acceleration in termux   
 
-## *PREVIEW* ##
+## PREVIEW ##
 ![home screen](./images/img1.jpg)
 
 ![in terminal](./images/img2.jpg)
 
-### **INSTRUCTIONS** ###
-***for setting up the environment you need following requirements:***
-- [x] termux app.
-*Link:(https://github.com/termux/termux-app/releases/tag/v0.118.2)*  
->:warning:  **only use github or fdroid as playstore one is outdated**
-- [x] **termux:x11** . 
-*Link:(https://github.com/termux/termux-x11/releases/tag/nightly)*
-- [x] **termux:api** .
-*Link: (https://github.com/termux/termux-api/releases/tag/v0.51.0)*
-- [x] **internet connection**
+### INSTRUCTIONS ###
+for setting up the environment you need following requirements:
+
+- termux-app from [github](https://github.com/termux/termux-app/releases) or [fdroid](https://f-droid.org/packages/com.termux/)
+
+- <a href="https://github.com/termux/termux-x11/releases/tag/nightly">termux:x11</a>
+- <a href="https://github.com/termux/termux-api/releases">termux:api</a>
+- internet connection
 
 ### first step ###
-*first update the system and install git  by running following command*
+first update the system and install git  by running following command
 ```bash
 apt update -y && apt upgrade -y  && apt install git -y && termux-setup-storage
 ```
-> *CLICK ON ALLOW WHILE SETTING UP STORAGE*
+click on allow.
+
 ### second step ###
-**clone the repo and run install.sh**
+clone the repo and run install.sh
 ```bash
 git clone https://github.com/BayonetArch/termux-mdwm.git 
 cd termux-mdwm
@@ -32,21 +31,14 @@ cd termux-mdwm
 ```
 
 
-## **That's it you have succesfully installed the desktop** ##
-*run the desktop by running*
+## you have succesfully installed the desktop ##
+run the desktop by running
 ```bash
 start
 ```
-# DWM Keybindings (My Build)
+# Keybindings
+Modifier is set to `Alt`
 
-
----
-
-## Modifier Key
-
-- **MODKEY**:it's set to `Alt`.
-
----
 
 ## Application Launching
 
@@ -81,15 +73,7 @@ start
 ---
 
 ## Notes
-
-- If you want to change `MODKEY`, look for `#define MODKEY` in `config.h`.
-- You can customize `termcmd`, `browsercmd`, etc., in the same file to use your preferred apps.
-
-## Tips
-
-- Use floating mode (`Alt + g`) when apps don't tile well.
-- Combine `Alt + Shift + q` to cleanly close windows while staying on track.
-- Customize `dmenu` with your own font/colors to match your rice.
+You can change bindings and other stuff at `config.h`.
 
 
 ## setup rofi launcher 
